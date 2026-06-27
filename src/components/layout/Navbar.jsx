@@ -1,30 +1,27 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { siteConfig } from "@/lib/site";
 import Container from "./Container/Container";
 import styles from "./Navbar.module.css";
 
 const links = [
   {
-    code: "01",
     label: "Services",
     href: "#services",
     sectionId: "services",
   },
   {
-    code: "02",
     label: "Results",
     href: "#results",
     sectionId: "results",
   },
   {
-    code: "03",
-    label: "Why Us",
-    href: "#why-us",
-    sectionId: "why-us",
+    label: "Process",
+    href: "#process",
+    sectionId: "process",
   },
   {
-    code: "04",
     label: "Service Area",
     href: "#service-area",
     sectionId: "service-area",
@@ -38,7 +35,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 24);
+      setScrolled(window.scrollY > 18);
     };
 
     handleScroll();
@@ -126,16 +123,14 @@ export default function Navbar() {
         <a
           href="#home"
           className={styles.brand}
-          aria-label="Platinum Touch Detailing home"
+          aria-label={`${siteConfig.name} home`}
           onClick={closeMenu}
         >
-          <span className={styles.brandMark}>
-            <span>PTD</span>
-          </span>
+          <span className={styles.brandMark}>PT</span>
 
           <span className={styles.brandText}>
-            <strong>Platinum Touch</strong>
-            <small>Mobile Detailing</small>
+            <strong>{siteConfig.shortName}</strong>
+            <small>Car detailing</small>
           </span>
         </a>
 
@@ -151,26 +146,19 @@ export default function Navbar() {
                   isActive ? styles.navLinkActive : ""
                 }`}
               >
-                <span>{link.code}</span>
-                <strong>{link.label}</strong>
+                {link.label}
               </a>
             );
           })}
         </nav>
 
         <div className={styles.actions}>
-          <div className={styles.status}>
-            <span className={styles.statusDot} />
-
-            <span>
-              Mobile unit
-              <small>Des Moines metro</small>
-            </span>
-          </div>
+          <a href={siteConfig.phoneHref} className={styles.phoneLink}>
+            {siteConfig.phone}
+          </a>
 
           <a href="#booking" className={styles.bookingButton}>
-            <span>Book now</span>
-            <span aria-hidden="true">↗</span>
+            Book now
           </a>
 
           <button
@@ -196,11 +184,6 @@ export default function Navbar() {
         }`}
       >
         <Container className={styles.mobileInner}>
-          <div className={styles.mobileHeader}>
-            <span>PTD / Navigation system</span>
-            <span>05 links available</span>
-          </div>
-
           <nav className={styles.mobileNav} aria-label="Mobile navigation">
             {links.map((link) => {
               const isActive = activeSection === link.sectionId;
@@ -214,11 +197,8 @@ export default function Navbar() {
                   }`}
                   onClick={closeMenu}
                 >
-                  <span>{link.code}</span>
-
-                  <strong>{link.label}</strong>
-
-                  <span aria-hidden="true">↗</span>
+                  <span>{link.label}</span>
+                  <span aria-hidden="true">→</span>
                 </a>
               );
             })}
@@ -228,16 +208,13 @@ export default function Navbar() {
               className={styles.mobileBooking}
               onClick={closeMenu}
             >
-              <span>05</span>
-              <strong>Book your detail</strong>
-              <span aria-hidden="true">↗</span>
+              Book your detail
             </a>
           </nav>
 
-          <div className={styles.mobileFooter}>
-            <span>Waukee</span>
-            <span>West Des Moines</span>
-            <span>Des Moines</span>
+          <div className={styles.mobileContact}>
+            <a href={siteConfig.phoneHref}>{siteConfig.phone}</a>
+            <a href={siteConfig.emailHref}>{siteConfig.email}</a>
           </div>
         </Container>
       </div>

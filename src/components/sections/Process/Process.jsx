@@ -4,93 +4,68 @@ import styles from "./Process.module.css";
 const steps = [
   {
     number: "01",
-    state: "Input",
-    title: "Choose Your Service",
-    text: "Select the detailing package and additional procedures that match your vehicle's needs.",
+    title: "Choose your service",
+    text: "Select the package that fits your vehicle and add any extra service you may need.",
   },
   {
     number: "02",
-    state: "Review",
-    title: "Send Vehicle Details",
-    text: "Provide vehicle type, location, condition, preferred date, and any specific concerns.",
+    title: "Send vehicle details",
+    text: "Share your vehicle type, location, condition, preferred date, and any specific concerns.",
   },
   {
     number: "03",
-    state: "Confirm",
-    title: "Receive Confirmation",
-    text: "Availability, expected service duration, and estimated pricing are reviewed and confirmed.",
+    title: "Confirm your appointment",
+    text: "Availability, estimated duration, and final pricing are reviewed before the service.",
   },
   {
     number: "04",
-    state: "Deploy",
-    title: "We Come to You",
-    text: "The mobile detailing service arrives at your selected location and completes the scheduled work.",
+    title: "We come to you",
+    text: "Platinum Touch arrives at your location and completes the scheduled mobile detail.",
   },
 ];
 
 export default function Process() {
   return (
-    <section className={styles.section}>
+    <section id="process" className={styles.section}>
       <Container>
         <header className={styles.header}>
-          <div className={styles.headerCode}>
-            <span>06</span>
-            <strong>Booking workflow</strong>
-          </div>
+          <p className={styles.eyebrow}>Process</p>
 
-          <div className={styles.headerCopy}>
-            <p>Four-stage service deployment</p>
-
+          <div className={styles.headerGrid}>
             <h2>
-              From request
-              <span>to completed finish.</span>
+              Booking your detail
+              <span>is simple.</span>
             </h2>
-          </div>
 
-          <a href="#booking" className={styles.headerAction}>
-            <span>Start booking</span>
-            <span aria-hidden="true">↗</span>
-          </a>
+            <p>
+              A clear four-step process from choosing your service to getting
+              your vehicle detailed at your location.
+            </p>
+          </div>
         </header>
 
-        <div className={styles.workflow}>
-          <div className={styles.progressLine}>
-            <span className={styles.progressPulse} />
-          </div>
-
+        <div className={styles.stepsGrid}>
           {steps.map((step) => (
             <article key={step.number} className={styles.step}>
-              <div className={styles.stepHeader}>
-                <span className={styles.number}>{step.number}</span>
-                <span className={styles.state}>{step.state}</span>
-              </div>
+              <span className={styles.number}>{step.number}</span>
 
-              <div className={styles.node}>
-                <span />
-              </div>
-
-              <div className={styles.stepContent}>
+              <div>
                 <h3>{step.title}</h3>
                 <p>{step.text}</p>
               </div>
-
-              <span className={styles.stepArrow} aria-hidden="true">
-                ↗
-              </span>
             </article>
           ))}
         </div>
 
-        <div className={styles.processFooter}>
-          <div>
-            <span className={styles.statusDot} />
-            <strong>Appointments required</strong>
-          </div>
+        <div className={styles.footer}>
+          <strong>Appointments required</strong>
 
           <p>
             Weather, distance, service complexity, and vehicle condition may
             affect scheduling and expected completion time.
           </p>
+
+          <a href="#booking">Start booking</a>
         </div>
       </Container>
     </section>

@@ -3,11 +3,9 @@ import styles from "./Services.module.css";
 
 const packages = [
   {
-    id: "E–01",
-    type: "Maintenance system",
     title: "Essential",
     description:
-      "A complete interior and exterior maintenance service for vehicles that need a professional reset.",
+      "A complete maintenance detail for vehicles that need a clean interior and exterior reset.",
     startingPrice: "$120",
     vehiclePrices: [
       {
@@ -35,11 +33,9 @@ const packages = [
       "Clay bar treatment, polishing, engine cleaning, and ceramic coatings are not included.",
   },
   {
-    id: "P–02",
-    type: "Deep-clean system",
     title: "Premium",
     description:
-      "A deeper restoration-focused service for interiors and exterior surfaces requiring additional attention.",
+      "A deeper detail for vehicles that need extra interior attention and a more refined exterior finish.",
     startingPrice: "$160",
     vehiclePrices: [
       {
@@ -69,105 +65,105 @@ const packages = [
   },
 ];
 
+const addOns = [
+  "Pet hair removal",
+  "Headlight restoration",
+  "Ozone odor treatment",
+  "Heavy stain treatment",
+];
+
 export default function Services() {
   return (
     <section id="services" className={styles.section}>
       <Container>
         <header className={styles.header}>
-          <div className={styles.headerIndex}>
-            <span>02</span>
-            <strong>Service systems</strong>
-          </div>
+          <p className={styles.eyebrow}>Services</p>
 
-          <div className={styles.headerCopy}>
-            <p>Choose your level of finish</p>
-
+          <div className={styles.headerGrid}>
             <h2>
-              Two systems.
-              <span>One standard.</span>
+              Choose the detail
+              <span>that fits your car.</span>
             </h2>
-          </div>
 
-          <p className={styles.headerDescription}>
-            Select a service according to your vehicle&apos;s condition,
-            required depth of cleaning, and desired finish.
-          </p>
+            <p>
+              Simple packages, clear starting prices, and mobile service brought
+              directly to your location.
+            </p>
+          </div>
         </header>
 
-        <div className={styles.packageList}>
+        <div className={styles.packageGrid}>
           {packages.map((service) => (
             <article
-              key={service.id}
+              key={service.title}
               className={`${styles.package} ${
                 service.featured ? styles.packageFeatured : ""
               }`}
             >
-              <div className={styles.packageRail}>
-                <span>{service.id}</span>
-                <span>{service.type}</span>
+              {service.featured && (
+                <span className={styles.badge}>Most popular</span>
+              )}
 
-                {service.featured && (
-                  <strong className={styles.recommended}>Recommended</strong>
-                )}
-              </div>
-
-              <div className={styles.packageLead}>
-                <div className={styles.titleBlock}>
-                  <span>Platinum Touch / {service.id}</span>
+              <div className={styles.packageHeader}>
+                <div>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                 </div>
 
-                <div className={styles.priceBlock}>
-                  <span>Starting from</span>
+                <div className={styles.price}>
+                  <span>From</span>
                   <strong>{service.startingPrice}</strong>
-                  <small>Final pricing depends on vehicle condition.</small>
                 </div>
               </div>
 
-              <div className={styles.vehicleGrid}>
+              <div className={styles.priceRows}>
                 {service.vehiclePrices.map((vehicle) => (
-                  <div key={vehicle.vehicle} className={styles.vehiclePrice}>
+                  <div key={vehicle.vehicle} className={styles.priceRow}>
                     <span>{vehicle.vehicle}</span>
                     <strong>{vehicle.price}</strong>
                   </div>
                 ))}
               </div>
 
-              <div className={styles.packageDetails}>
-                <div className={styles.featureColumn}>
-                  <span className={styles.detailTitle}>Included procedures</span>
+              <div className={styles.features}>
+                <h4>Included</h4>
 
-                  <ul>
-                    {service.features.map((feature, index) => (
-                      <li key={feature}>
-                        <span>{String(index + 1).padStart(2, "0")}</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul>
+                  {service.features.map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
 
-                <div className={styles.packageAction}>
-                  <p>{service.note}</p>
+              <div className={styles.cardFooter}>
+                <p>{service.note}</p>
 
-                  <a href="#booking">
-                    <span>Select {service.title}</span>
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                </div>
+                <a href="#booking">Select {service.title}</a>
               </div>
             </article>
           ))}
         </div>
 
-        <div className={styles.serviceFooter}>
-          <span>Pricing notice</span>
+        <div className={styles.addOns}>
+          <div>
+            <p className={styles.eyebrow}>Available add-ons</p>
+            <h3>Need something extra?</h3>
+          </div>
+
+          <div className={styles.addOnList}>
+            {addOns.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.notice}>
+          <strong>Pricing notice</strong>
 
           <p>
             Published prices are starting estimates. Excessive dirt, staining,
             pet hair, or unusual vehicle conditions may require an adjusted
-            quote.
+            quote after inspection.
           </p>
         </div>
       </Container>

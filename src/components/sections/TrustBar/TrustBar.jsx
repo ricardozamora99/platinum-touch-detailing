@@ -2,29 +2,24 @@ import styles from "./TrustBar.module.css";
 
 const items = [
   {
-    code: "01",
-    title: "Mobile unit",
+    title: "Mobile service",
     text: "We come to your location",
   },
   {
-    code: "02",
-    title: "Clear pricing",
-    text: "Packages from $120",
+    title: "Clear packages",
+    text: "Starting from $120",
   },
   {
-    code: "03",
-    title: "Interior systems",
-    text: "Deep surface treatment",
+    title: "Interior detail",
+    text: "Clean surfaces, seats, and carpets",
   },
   {
-    code: "04",
     title: "Exterior finish",
-    text: "Hand-cleaned and protected",
+    text: "Hand wash and careful finish",
   },
   {
-    code: "05",
-    title: "Des Moines metro",
-    text: "Local mobile coverage",
+    title: "Local coverage",
+    text: "Des Moines metro area",
   },
 ];
 
@@ -32,15 +27,13 @@ function TrustItems({ hidden = false }) {
   return (
     <div className={styles.group} aria-hidden={hidden}>
       {items.map((item) => (
-        <article key={`${hidden}-${item.code}`} className={styles.item}>
-          <span className={styles.code}>{item.code}</span>
+        <article key={`${hidden}-${item.title}`} className={styles.item}>
+          <span className={styles.dot} />
 
           <div>
             <strong>{item.title}</strong>
             <span>{item.text}</span>
           </div>
-
-          <span className={styles.marker} />
         </article>
       ))}
     </div>
@@ -51,8 +44,7 @@ export default function TrustBar() {
   return (
     <section className={styles.section} aria-label="Service advantages">
       <div className={styles.label}>
-        <span>PTD</span>
-        <strong>Service standard</strong>
+        <span>What you get</span>
       </div>
 
       <div className={styles.viewport}>

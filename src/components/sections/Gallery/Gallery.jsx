@@ -3,35 +3,29 @@ import styles from "./Gallery.module.css";
 
 const items = [
   {
-    number: "01",
-    category: "Exterior system",
     title: "Exterior Finish",
+    category: "Exterior detail",
     size: "feature",
   },
   {
-    number: "02",
-    category: "Interior system",
     title: "Interior Refresh",
+    category: "Interior detail",
   },
   {
-    number: "03",
-    category: "Material care",
     title: "Seats & Upholstery",
+    category: "Material care",
   },
   {
-    number: "04",
-    category: "Deep treatment",
     title: "Carpet Cleaning",
+    category: "Deep clean",
   },
   {
-    number: "05",
-    category: "Exterior detail",
     title: "Wheels & Tires",
+    category: "Exterior care",
   },
   {
-    number: "06",
-    category: "Restoration",
     title: "Headlight Restoration",
+    category: "Restoration",
   },
 ];
 
@@ -40,79 +34,51 @@ export default function Gallery() {
     <section id="results" className={styles.section}>
       <Container>
         <header className={styles.header}>
-          <div className={styles.headerCode}>
-            <span>05</span>
-            <strong>Result archive</strong>
-          </div>
+          <p className={styles.eyebrow}>Results</p>
 
-          <div className={styles.headerCopy}>
-            <p>Work portfolio / development mode</p>
-
+          <div className={styles.headerGrid}>
             <h2>
-              Results will
-              <span>speak for themselves.</span>
+              Work that speaks
+              <span>for itself.</span>
             </h2>
-          </div>
 
-          <p className={styles.headerDescription}>
-            Real customer transformations will replace these technical
-            placeholders as the Platinum Touch portfolio grows.
-          </p>
+            <p>
+              Real before-and-after photos will be added as Platinum Touch
+              builds its customer portfolio.
+            </p>
+          </div>
         </header>
 
-        <div className={styles.archive}>
+        <div className={styles.galleryGrid}>
           {items.map((item) => (
             <article
-              key={item.number}
+              key={item.title}
               className={`${styles.item} ${
                 item.size === "feature" ? styles.featureItem : ""
               }`}
             >
-              <div className={styles.imageArea}>
-                <div className={styles.gridPattern} />
-                <div className={styles.surfaceShape} />
-                <div className={styles.lightSweep} />
-
-                <span className={styles.placeholderLabel}>
-                  Future result image
-                </span>
-
-                <div className={styles.imageCoordinates}>
-                  <span>X.{item.number}4</span>
-                  <span>Y.{item.number}9</span>
-                </div>
-
-                <div className={styles.scanStatus}>
-                  <span />
-                  Result slot active
+              <div className={styles.imagePlaceholder}>
+                <div>
+                  <span>{item.category}</span>
+                  <strong>Future result image</strong>
                 </div>
               </div>
 
               <div className={styles.itemInfo}>
-                <div className={styles.itemIndex}>
-                  <span>{item.number}</span>
-                  <small>{item.category}</small>
-                </div>
-
+                <span>{item.category}</span>
                 <h3>{item.title}</h3>
-
-                <span className={styles.itemArrow} aria-hidden="true">
-                  ↗
-                </span>
               </div>
             </article>
           ))}
         </div>
 
-        <div className={styles.archiveFooter}>
-          <div>
-            <span className={styles.activeDot} />
-            <strong>Portfolio currently in development</strong>
-          </div>
+        <div className={styles.note}>
+          <strong>Portfolio in progress</strong>
 
           <p>
-            Future entries will include before-and-after imagery, treatment
-            type, vehicle category, and completed service package.
+            This section is ready for real customer images: exterior finishes,
+            interior resets, upholstery care, wheels, carpets, and restoration
+            results.
           </p>
         </div>
       </Container>
