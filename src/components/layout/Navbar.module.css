@@ -1,11 +1,12 @@
 .navbar {
-  --nav-background: rgba(250, 249, 246, 0.82);
-  --nav-background-solid: rgba(250, 249, 246, 0.96);
-  --nav-text: #111111;
-  --nav-muted: #6f6f68;
-  --nav-line: rgba(17, 17, 17, 0.1);
-  --nav-accent: #c9472c;
-  --nav-accent-dark: #9f321d;
+  --nav-background: rgba(12, 12, 10, 0.72);
+  --nav-background-solid: rgba(12, 12, 10, 0.94);
+  --nav-text: #f7f1df;
+  --nav-muted: rgba(247, 241, 223, 0.68);
+  --nav-line: rgba(212, 175, 55, 0.22);
+  --nav-accent: #d4af37;
+  --nav-accent-light: #f1d16b;
+  --nav-dark: #111111;
 
   position: fixed;
   inset: 0 0 auto;
@@ -24,7 +25,7 @@
 .navbarScrolled {
   background: var(--nav-background-solid);
   border-bottom-color: var(--nav-line);
-  box-shadow: 0 12px 35px rgba(17, 17, 17, 0.06);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
 }
 
 .inner {
@@ -36,24 +37,27 @@
 }
 
 .brand {
+  width: max-content;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  width: max-content;
+  gap: 14px;
+  text-decoration: none;
 }
 
-.brandMark {
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--nav-line);
-  border-radius: 50%;
-  background: #ffffff;
-  color: var(--nav-text);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+.brandLogoWrap {
+  width: 150px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandLogo {
+  width: 150px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.28));
 }
 
 .brandText {
@@ -65,7 +69,7 @@
 .brandText strong {
   color: var(--nav-text);
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 850;
   letter-spacing: -0.02em;
 }
 
@@ -73,7 +77,8 @@
   margin-top: 6px;
   color: var(--nav-muted);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 650;
+  letter-spacing: 0.02em;
 }
 
 .desktopNav {
@@ -84,7 +89,7 @@
   padding: 6px;
   border: 1px solid var(--nav-line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .navLink {
@@ -93,20 +98,22 @@
   border-radius: 999px;
   color: var(--nav-muted);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 750;
+  text-decoration: none;
   transition:
     color 0.2s ease,
-    background 0.2s ease;
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .navLink:hover,
 .navLinkActive {
-  color: var(--nav-text);
-  background: #ffffff;
+  color: var(--nav-dark);
+  background: var(--nav-accent);
 }
 
 .navLinkActive {
-  box-shadow: 0 6px 18px rgba(17, 17, 17, 0.06);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.22);
 }
 
 .actions {
@@ -119,12 +126,13 @@
 .phoneLink {
   color: var(--nav-muted);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 750;
+  text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .phoneLink:hover {
-  color: var(--nav-text);
+  color: var(--nav-accent-light);
 }
 
 .bookingButton {
@@ -134,18 +142,22 @@
   justify-content: center;
   padding: 0 20px;
   border-radius: 999px;
-  background: var(--nav-text);
-  color: #ffffff;
+  background: var(--nav-accent);
+  color: var(--nav-dark);
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 850;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(212, 175, 55, 0.18);
   transition:
     background 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .bookingButton:hover {
-  background: var(--nav-accent);
+  background: var(--nav-accent-light);
   transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.26);
 }
 
 .menuButton {
@@ -155,7 +167,7 @@
   display: none;
   border: 1px solid var(--nav-line);
   border-radius: 50%;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
   cursor: pointer;
 }
 
@@ -196,7 +208,7 @@
   overflow: hidden;
   visibility: hidden;
   border-bottom: 1px solid transparent;
-  background: rgba(250, 249, 246, 0.98);
+  background: rgba(12, 12, 10, 0.98);
   opacity: 0;
   backdrop-filter: blur(18px);
   transition:
@@ -233,10 +245,11 @@
   padding: 0 18px;
   border: 1px solid var(--nav-line);
   border-radius: 18px;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
   color: var(--nav-muted);
   font-size: 15px;
   font-weight: 750;
+  text-decoration: none;
   transition:
     color 0.2s ease,
     border-color 0.2s ease,
@@ -245,9 +258,9 @@
 
 .mobileLink:hover,
 .mobileLinkActive {
-  color: var(--nav-text);
-  border-color: rgba(201, 71, 44, 0.35);
-  background: rgba(201, 71, 44, 0.06);
+  color: var(--nav-dark);
+  border-color: rgba(212, 175, 55, 0.55);
+  background: var(--nav-accent);
 }
 
 .mobileBooking {
@@ -257,10 +270,15 @@
   justify-content: center;
   margin-top: 8px;
   border-radius: 18px;
-  background: var(--nav-text);
-  color: #ffffff;
+  background: var(--nav-accent);
+  color: var(--nav-dark);
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.mobileBooking:hover {
+  background: var(--nav-accent-light);
 }
 
 .mobileContact {
@@ -276,10 +294,11 @@
   color: var(--nav-muted);
   font-size: 13px;
   font-weight: 650;
+  text-decoration: none;
 }
 
 .mobileContact a:hover {
-  color: var(--nav-text);
+  color: var(--nav-accent-light);
 }
 
 @media (max-width: 1180px) {
@@ -320,10 +339,17 @@
     display: none;
   }
 
-  .brandMark {
-    width: 39px;
-    height: 39px;
-    font-size: 11px;
+  .brand {
+    gap: 10px;
+  }
+
+  .brandLogoWrap {
+    width: 90px;
+    height: 42px;
+  }
+
+  .brandLogo {
+    width: 90px;
   }
 
   .brandText strong {
@@ -331,7 +357,25 @@
   }
 
   .brandText small {
+    max-width: 150px;
     font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 420px) {
+  .brandText small {
+    display: none;
+  }
+
+  .brandLogoWrap {
+    width: 82px;
+  }
+
+  .brandLogo {
+    width: 82px;
   }
 }
 
@@ -344,5 +388,9 @@
   .mobileMenu,
   .mobileLink {
     transition: none;
+  }
+
+  .bookingButton:hover {
+    transform: none;
   }
 }

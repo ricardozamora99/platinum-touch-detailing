@@ -1,15 +1,23 @@
 .section {
-  --cta-bg: #f2f1ee;
-  --cta-card: #111111;
-  --cta-text: #ffffff;
-  --cta-muted: rgba(255, 255, 255, 0.68);
-  --cta-soft: rgba(255, 255, 255, 0.48);
-  --cta-line: rgba(255, 255, 255, 0.14);
-  --cta-light-line: rgba(17, 17, 17, 0.12);
+  --cta-bg: #efe6cf;
+  --cta-bg-soft: #f7f1df;
+  --cta-card: #0c0b09;
+  --cta-text: #f7f1df;
+  --cta-muted: rgba(247, 241, 223, 0.68);
+  --cta-soft: rgba(247, 241, 223, 0.48);
+  --cta-line: rgba(212, 175, 55, 0.18);
+  --cta-line-strong: rgba(212, 175, 55, 0.32);
+  --cta-light-line: rgba(156, 107, 31, 0.18);
+  --cta-gold: #d4af37;
+  --cta-gold-light: #f1d16b;
+  --cta-gold-dark: #9c6b1f;
+  --cta-black: #0c0b09;
 
   padding: 72px 0 78px;
-  background: var(--cta-bg);
-  color: #111111;
+  background:
+    radial-gradient(circle at top right, rgba(212, 175, 55, 0.14), transparent 30rem),
+    linear-gradient(180deg, var(--cta-bg-soft), var(--cta-bg));
+  color: var(--cta-black);
 }
 
 .card {
@@ -18,12 +26,16 @@
   gap: 34px;
   align-items: stretch;
   padding: 42px;
+  border: 1px solid rgba(212, 175, 55, 0.24);
   border-radius: 36px;
   background:
-    radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.12), transparent 34%),
-    linear-gradient(135deg, #151515 0%, #111111 58%, #242421 100%);
+    radial-gradient(circle at 18% 20%, rgba(212, 175, 55, 0.18), transparent 34%),
+    radial-gradient(circle at 82% 76%, rgba(241, 209, 107, 0.1), transparent 30%),
+    linear-gradient(135deg, #1a1813 0%, #0c0b09 58%, #252219 100%);
   color: var(--cta-text);
-  box-shadow: 0 24px 70px rgba(17, 17, 17, 0.12);
+  box-shadow:
+    0 24px 70px rgba(12, 11, 9, 0.2),
+    0 18px 46px rgba(212, 175, 55, 0.12);
 }
 
 .copy {
@@ -35,10 +47,10 @@
 
 .eyebrow {
   margin: 0 0 18px;
-  color: var(--cta-soft);
+  color: var(--cta-gold-light);
   font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-weight: 850;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -54,7 +66,7 @@
 
 .copy h2 span {
   display: block;
-  color: var(--cta-muted);
+  color: var(--cta-gold);
 }
 
 .description {
@@ -72,7 +84,7 @@
   padding: 28px;
   border: 1px solid var(--cta-line);
   border-radius: 28px;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(12px);
 }
 
@@ -107,29 +119,38 @@
   font-size: 14px;
   font-weight: 850;
   text-align: center;
+  text-decoration: none;
   transition:
     background 0.2s ease,
     color 0.2s ease,
-    transform 0.2s ease;
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .primaryAction {
-  background: #ffffff;
-  color: #111111;
+  background: var(--cta-gold);
+  color: var(--cta-black);
+  box-shadow: 0 14px 30px rgba(212, 175, 55, 0.24);
+}
+
+.primaryAction:hover {
+  background: var(--cta-gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgba(212, 175, 55, 0.34);
 }
 
 .secondaryAction {
-  border: 1px solid var(--cta-line);
-  color: #ffffff;
+  border: 1px solid var(--cta-line-strong);
+  color: var(--cta-text);
+  background: rgba(255, 255, 255, 0.04);
 }
 
-.primaryAction:hover,
 .secondaryAction:hover {
+  border-color: rgba(241, 209, 107, 0.5);
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--cta-gold-light);
   transform: translateY(-1px);
-}
-
-.secondaryAction:hover {
-  background: rgba(255, 255, 255, 0.1);
 }
 
 .contactData {
@@ -146,10 +167,19 @@
   border: 1px solid var(--cta-line);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.05);
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.contactData a:hover {
+  border-color: var(--cta-line-strong);
+  background: rgba(212, 175, 55, 0.08);
 }
 
 .contactData span {
-  color: var(--cta-soft);
+  color: var(--cta-gold-light);
   font-size: 12px;
   font-weight: 750;
 }
@@ -172,7 +202,7 @@
 }
 
 .notice strong {
-  color: #111111;
+  color: var(--cta-black);
   font-size: 13px;
   font-weight: 850;
 }
@@ -180,7 +210,7 @@
 .notice p {
   max-width: 780px;
   margin: 0;
-  color: #666660;
+  color: #6d6455;
   font-size: 13px;
   line-height: 1.65;
 }
@@ -225,7 +255,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .primaryAction,
-  .secondaryAction {
+  .secondaryAction,
+  .contactData a {
     transition: none;
   }
 

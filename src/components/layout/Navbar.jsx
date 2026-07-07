@@ -49,43 +49,49 @@ export default function Navbar() {
     };
   }, []);
 
-  useEffect(() => {
-    const sectionIds = [
-      "home",
-      "services",
-      "results",
-      "why-us",
-      "service-area",
-      "booking",
-    ];
+useEffect(() => {
+  const sectionIds = [
+    "home",
+    "services",
+    "results",
+    "process",
+    "service-area",
+    "booking",
+  ];
 
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean);
+  const updateActiveSection = () => {
+    const viewportPoint = window.innerHeight * 0.45;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort(
-            (first, second) =>
-              second.intersectionRatio - first.intersectionRatio,
-          );
+    let currentSection = "home";
 
-        if (visibleEntries.length > 0) {
-          setActiveSection(visibleEntries[0].target.id);
-        }
-      },
-      {
-        rootMargin: "-25% 0px -58% 0px",
-        threshold: [0.05, 0.2, 0.4],
-      },
-    );
+    sectionIds.forEach((id) => {
+      const section = document.getElementById(id);
 
-    sections.forEach((section) => observer.observe(section));
+      if (!section) return;
 
-    return () => observer.disconnect();
-  }, []);
+      const rect = section.getBoundingClientRect();
+
+      if (rect.top <= viewportPoint && rect.bottom >= viewportPoint) {
+        currentSection = id;
+      }
+    });
+
+    setActiveSection(currentSection);
+  };
+
+  updateActiveSection();
+
+  window.addEventListener("scroll", updateActiveSection, {
+    passive: true,
+  });
+
+  window.addEventListener("resize", updateActiveSection);
+
+  return () => {
+    window.removeEventListener("scroll", updateActiveSection);
+    window.removeEventListener("resize", updateActiveSection);
+  };
+}, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -126,11 +132,17 @@ export default function Navbar() {
           aria-label={`${siteConfig.name} home`}
           onClick={closeMenu}
         >
-          <span className={styles.brandMark}>PT</span>
+          <span className={styles.brandLogoWrap}>
+            <img
+              src="/brand/logo-car.png"
+              alt=""
+              className={styles.brandLogo}
+            />
+          </span>
 
           <span className={styles.brandText}>
             <strong>{siteConfig.shortName}</strong>
-            <small>Car detailing</small>
+            <small>Excellence in every detail</small>
           </span>
         </a>
 

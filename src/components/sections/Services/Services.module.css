@@ -1,14 +1,23 @@
 .section {
-  --service-bg: #f2f1ee;
-  --service-card: #ffffff;
-  --service-text: #111111;
-  --service-muted: #666660;
-  --service-soft: #8b8b84;
-  --service-line: rgba(17, 17, 17, 0.12);
-  --service-panel: rgba(255, 255, 255, 0.58);
+  --service-bg: #f7f1df;
+  --service-bg-soft: #efe6cf;
+  --service-card: rgba(255, 255, 255, 0.9);
+  --service-text: #0c0b09;
+  --service-muted: #6d6455;
+  --service-soft: #91846d;
+  --service-line: rgba(156, 107, 31, 0.18);
+  --service-line-strong: rgba(156, 107, 31, 0.32);
+  --service-panel: rgba(255, 255, 255, 0.56);
+  --service-gold: #d4af37;
+  --service-gold-light: #f1d16b;
+  --service-gold-dark: #9c6b1f;
+  --service-black: #0c0b09;
 
   padding: 86px 0 104px;
-  background: var(--service-bg);
+  background:
+    radial-gradient(circle at top right, rgba(212, 175, 55, 0.16), transparent 30rem),
+    radial-gradient(circle at bottom left, rgba(156, 107, 31, 0.1), transparent 28rem),
+    linear-gradient(180deg, var(--service-bg), var(--service-bg-soft));
   color: var(--service-text);
 }
 
@@ -20,10 +29,10 @@
 
 .eyebrow {
   margin: 0 0 18px;
-  color: var(--service-muted);
+  color: var(--service-gold-dark);
   font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-weight: 850;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -46,7 +55,7 @@
 
 .headerGrid h2 span {
   display: block;
-  color: var(--service-muted);
+  color: var(--service-gold-dark);
 }
 
 .headerGrid p {
@@ -71,15 +80,19 @@
   padding: 28px;
   border: 1px solid var(--service-line);
   border-radius: 32px;
-  background: var(--service-card);
-  box-shadow: 0 18px 50px rgba(17, 17, 17, 0.045);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 241, 223, 0.86));
+  box-shadow: 0 18px 50px rgba(12, 11, 9, 0.08);
 }
 
 .packageFeatured {
-  border-color: rgba(17, 17, 17, 0.22);
+  border-color: var(--service-line-strong);
   background:
-    linear-gradient(180deg, rgba(17, 17, 17, 0.03), transparent 34%),
-    var(--service-card);
+    radial-gradient(circle at top right, rgba(212, 175, 55, 0.22), transparent 18rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 241, 223, 0.9));
+  box-shadow:
+    0 20px 55px rgba(12, 11, 9, 0.1),
+    0 18px 42px rgba(212, 175, 55, 0.12);
 }
 
 .badge {
@@ -87,10 +100,11 @@
   margin-bottom: 18px;
   padding: 8px 12px;
   border-radius: 999px;
-  background: #111111;
-  color: #ffffff;
+  background: var(--service-black);
+  color: var(--service-gold-light);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 850;
+  box-shadow: 0 10px 24px rgba(12, 11, 9, 0.18);
 }
 
 .packageHeader {
@@ -133,10 +147,14 @@
 }
 
 .price strong {
-  color: var(--service-text);
+  color: var(--service-black);
   font-size: 42px;
   font-weight: 900;
   letter-spacing: -0.06em;
+}
+
+.packageFeatured .price strong {
+  color: var(--service-gold-dark);
 }
 
 .priceRows {
@@ -155,7 +173,7 @@
   padding: 0 16px;
   border: 1px solid var(--service-line);
   border-radius: 16px;
-  background: var(--service-panel);
+  background: rgba(255, 255, 255, 0.58);
 }
 
 .priceRow span {
@@ -206,7 +224,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--service-text);
+  background: var(--service-gold);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.45);
 }
 
 .cardFooter {
@@ -231,19 +250,34 @@
   justify-content: center;
   width: 100%;
   border-radius: 999px;
-  background: #111111;
-  color: #ffffff;
+  background: var(--service-black);
+  color: #f7f1df;
   font-size: 14px;
   font-weight: 850;
   text-align: center;
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(12, 11, 9, 0.18);
   transition:
     background 0.2s ease,
-    transform 0.2s ease;
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .cardFooter a:hover {
-  background: #2b2b2b;
+  background: var(--service-gold);
+  color: var(--service-black);
   transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgba(212, 175, 55, 0.24);
+}
+
+.packageFeatured .cardFooter a {
+  background: var(--service-gold);
+  color: var(--service-black);
+}
+
+.packageFeatured .cardFooter a:hover {
+  background: var(--service-gold-light);
 }
 
 .addOns {
@@ -254,7 +288,10 @@
   padding: 28px;
   border: 1px solid var(--service-line);
   border-radius: 28px;
-  background: rgba(255, 255, 255, 0.54);
+  background:
+    radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 18rem),
+    rgba(255, 255, 255, 0.54);
+  box-shadow: 0 18px 50px rgba(12, 11, 9, 0.05);
 }
 
 .addOns h3 {
@@ -280,7 +317,7 @@
   padding: 0 16px;
   border: 1px solid var(--service-line);
   border-radius: 999px;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.74);
   color: var(--service-muted);
   font-size: 13px;
   font-weight: 750;
@@ -349,8 +386,21 @@
     font-size: clamp(42px, 14vw, 62px);
   }
 
+  .package {
+    padding: 22px;
+    border-radius: 26px;
+  }
+
+  .packageHeader {
+    grid-template-columns: 1fr;
+  }
+
   .packageHeader h3 {
     font-size: 42px;
+  }
+
+  .price {
+    text-align: left;
   }
 
   .priceRow {
@@ -360,6 +410,10 @@
     padding: 12px 16px;
   }
 
+  .features ul {
+    grid-template-columns: 1fr;
+  }
+
   .addOnList {
     display: grid;
     grid-template-columns: 1fr;
@@ -367,6 +421,11 @@
 
   .addOnList span {
     justify-content: center;
+  }
+
+  .notice {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 

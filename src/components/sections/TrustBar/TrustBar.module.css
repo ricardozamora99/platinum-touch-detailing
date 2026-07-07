@@ -1,9 +1,11 @@
 .section {
-  --trust-background: #f2f1ee;
-  --trust-panel: rgba(255, 255, 255, 0.64);
-  --trust-text: #111111;
-  --trust-muted: #686862;
-  --trust-line: rgba(17, 17, 17, 0.12);
+  --trust-background: #0c0b09;
+  --trust-panel: rgba(255, 255, 255, 0.04);
+  --trust-text: #f7f1df;
+  --trust-muted: rgba(247, 241, 223, 0.66);
+  --trust-line: rgba(212, 175, 55, 0.2);
+  --trust-gold: #d4af37;
+  --trust-gold-light: #f1d16b;
 
   min-height: 104px;
   display: grid;
@@ -11,7 +13,9 @@
   overflow: hidden;
   border-top: 1px solid var(--trust-line);
   border-bottom: 1px solid var(--trust-line);
-  background: var(--trust-background);
+  background:
+    radial-gradient(circle at left, rgba(212, 175, 55, 0.12), transparent 28rem),
+    linear-gradient(90deg, #0c0b09, #17140f);
   color: var(--trust-text);
 }
 
@@ -23,14 +27,14 @@
   align-items: center;
   padding: 0 34px;
   border-right: 1px solid var(--trust-line);
-  background: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .label span {
-  color: var(--trust-text);
+  color: var(--trust-gold-light);
   font-size: 13px;
   font-weight: 850;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -63,6 +67,7 @@
   gap: 15px;
   padding: 0 30px;
   border-right: 1px solid var(--trust-line);
+  background: rgba(255, 255, 255, 0.015);
 }
 
 .dot {
@@ -70,8 +75,8 @@
   height: 9px;
   flex: 0 0 auto;
   border-radius: 50%;
-  background: var(--trust-text);
-  opacity: 0.86;
+  background: var(--trust-gold);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.55);
 }
 
 .item div {

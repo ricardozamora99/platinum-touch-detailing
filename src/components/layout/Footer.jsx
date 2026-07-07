@@ -14,8 +14,8 @@ const navigation = [
     href: "#results",
   },
   {
-    label: "Why Us",
-    href: "#why-us",
+    label: "Process",
+    href: "#process",
   },
   {
     label: "Service Area",
@@ -42,11 +42,17 @@ export default function Footer() {
               className={styles.brand}
               aria-label={`${siteConfig.name} home`}
             >
-              <span className={styles.brandMark}>PT</span>
+              <span className={styles.brandLogoWrap}>
+                <img
+                  src="/brand/logo-car.png"
+                  alt=""
+                  className={styles.brandLogo}
+                />
+              </span>
 
               <span className={styles.brandText}>
                 <strong>{siteConfig.shortName}</strong>
-                <small>Car detailing</small>
+                <small>Excellence in every detail</small>
               </span>
             </a>
 

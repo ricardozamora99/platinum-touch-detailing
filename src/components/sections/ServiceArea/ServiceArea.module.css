@@ -1,14 +1,25 @@
 .section {
-  --area-bg: #f2f1ee;
-  --area-card: #ffffff;
-  --area-text: #111111;
-  --area-muted: #666660;
-  --area-soft: #8b8b84;
-  --area-line: rgba(17, 17, 17, 0.12);
+  --area-bg: #f7f1df;
+  --area-bg-soft: #efe6cf;
+  --area-card: rgba(255, 255, 255, 0.9);
+  --area-text: #0c0b09;
+  --area-muted: #6d6455;
+  --area-soft: #91846d;
+  --area-line: rgba(156, 107, 31, 0.18);
+  --area-line-strong: rgba(156, 107, 31, 0.32);
   --area-panel: rgba(255, 255, 255, 0.58);
+  --area-gold: #d4af37;
+  --area-gold-light: #f1d16b;
+  --area-gold-dark: #9c6b1f;
+  --area-black: #0c0b09;
+  --area-charcoal: #1a1813;
+  --area-ivory: #f7f1df;
 
   padding: 56px 0 92px;
-  background: var(--area-bg);
+  background:
+    radial-gradient(circle at top right, rgba(212, 175, 55, 0.14), transparent 30rem),
+    radial-gradient(circle at bottom left, rgba(156, 107, 31, 0.1), transparent 28rem),
+    linear-gradient(180deg, var(--area-bg), var(--area-bg-soft));
   color: var(--area-text);
 }
 
@@ -20,10 +31,10 @@
 
 .eyebrow {
   margin: 0 0 18px;
-  color: var(--area-muted);
+  color: var(--area-gold-dark);
   font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-weight: 850;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -46,7 +57,7 @@
 
 .headerGrid h2 span {
   display: block;
-  color: var(--area-muted);
+  color: var(--area-gold-dark);
 }
 
 .headerGrid p {
@@ -68,8 +79,9 @@
 .bookingCard {
   border: 1px solid var(--area-line);
   border-radius: 32px;
-  background: var(--area-card);
-  box-shadow: 0 18px 50px rgba(17, 17, 17, 0.045);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 241, 223, 0.88));
+  box-shadow: 0 18px 50px rgba(12, 11, 9, 0.08);
 }
 
 .areaCard {
@@ -83,12 +95,13 @@
   gap: 18px;
   padding: 24px 28px;
   border-bottom: 1px solid var(--area-line);
+  background: rgba(255, 255, 255, 0.42);
 }
 
 .cardHeader span {
-  color: var(--area-muted);
+  color: var(--area-gold-dark);
   font-size: 13px;
-  font-weight: 750;
+  font-weight: 800;
 }
 
 .cardHeader strong {
@@ -109,10 +122,17 @@
   gap: 22px;
   padding: 0 28px;
   border-bottom: 1px solid var(--area-line);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .city:last-child {
   border-bottom: 0;
+}
+
+.city:hover {
+  background: rgba(212, 175, 55, 0.08);
 }
 
 .city h3 {
@@ -136,7 +156,8 @@
   height: 10px;
   flex: 0 0 auto;
   border-radius: 50%;
-  background: var(--area-text);
+  background: var(--area-gold);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.5);
 }
 
 .bookingCard {
@@ -145,23 +166,28 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: 32px;
+  border-color: rgba(212, 175, 55, 0.26);
   background:
-    radial-gradient(circle at 78% 18%, rgba(17, 17, 17, 0.08), transparent 32%),
-    #ffffff;
+    radial-gradient(circle at 80% 16%, rgba(212, 175, 55, 0.2), transparent 32%),
+    radial-gradient(circle at 10% 90%, rgba(241, 209, 107, 0.1), transparent 28%),
+    linear-gradient(135deg, #1a1813 0%, #0c0b09 58%, #252219 100%);
+  box-shadow:
+    0 22px 58px rgba(12, 11, 9, 0.18),
+    0 16px 38px rgba(212, 175, 55, 0.12);
 }
 
 .bookingCard > span {
   margin-bottom: 16px;
-  color: var(--area-muted);
+  color: var(--area-gold-light);
   font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-weight: 850;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .bookingCard h3 {
   margin: 0 0 18px;
-  color: var(--area-text);
+  color: var(--area-ivory);
   font-size: clamp(32px, 3vw, 46px);
   font-weight: 900;
   line-height: 0.98;
@@ -170,7 +196,7 @@
 
 .bookingCard p {
   margin: 0 0 28px;
-  color: var(--area-muted);
+  color: rgba(247, 241, 223, 0.68);
   font-size: 14px;
   line-height: 1.7;
 }
@@ -183,18 +209,22 @@
   width: max-content;
   padding: 0 24px;
   border-radius: 999px;
-  background: #111111;
-  color: #ffffff;
+  background: var(--area-gold);
+  color: var(--area-black);
   font-size: 14px;
   font-weight: 850;
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(212, 175, 55, 0.22);
   transition:
     background 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .bookingCard a:hover {
-  background: #2b2b2b;
+  background: var(--area-gold-light);
   transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgba(212, 175, 55, 0.32);
 }
 
 @media (max-width: 980px) {
@@ -256,6 +286,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .city,
   .bookingCard a {
     transition: none;
   }

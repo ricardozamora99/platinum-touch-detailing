@@ -4,11 +4,19 @@ import { useEffect, useState } from "react";
 import Container from "@/components/layout/Container/Container";
 import styles from "./Hero.module.css";
 
-const subtitles = [
-  "Interior and exterior detailing brought directly to your driveway.",
-  "A cleaner, fresher car without leaving home.",
-  "Serving Des Moines, Waukee, West Des Moines, and surrounding areas.",
-  "Professional mobile car care made simple.",
+const slides = [
+  {
+    image: "/hero/washing-3.jpg",
+    subtitle: "A deep clean that brings your car back to life.",
+  },
+  {
+    image: "/hero/washing-1.jpg",
+    subtitle: "Interior and exterior detailing done with care.",
+  },
+  {
+    image: "/hero/washing-2.jpg",
+    subtitle: "Mobile car care made simple, wherever you are.",
+  },
 ];
 
 const serviceTags = ["Interior", "Exterior", "Full Detail", "Restoration"];
@@ -18,8 +26,8 @@ export default function Hero() {
 
   useEffect(() => {
     const interval = window.setInterval(() => {
-      setStep((current) => (current + 1) % subtitles.length);
-    }, 3200);
+      setStep((current) => (current + 1) % slides.length);
+    }, 4200);
 
     return () => {
       window.clearInterval(interval);
@@ -28,6 +36,21 @@ export default function Hero() {
 
   return (
     <section id="home" className={styles.hero}>
+      <div className={styles.background} aria-hidden="true">
+        {slides.map((slide, index) => (
+          <div
+            key={slide.image}
+            className={[
+              styles.imageLayer,
+              index === step ? styles.activeLayer : "",
+            ].join(" ")}
+            style={{ backgroundImage: `url(${slide.image})` }}
+          />
+        ))}
+      </div>
+
+      <div className={styles.overlay} aria-hidden="true" />
+
       <Container className={styles.container}>
         <div className={styles.heroContent}>
           <p className={styles.eyebrow}>Mobile car detailing</p>
@@ -38,7 +61,7 @@ export default function Hero() {
           </h1>
 
           <p key={step} className={styles.subtitle}>
-            {subtitles[step]}
+            {slides[step].subtitle}
           </p>
 
           <div className={styles.actions}>

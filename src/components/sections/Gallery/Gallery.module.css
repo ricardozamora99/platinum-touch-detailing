@@ -1,17 +1,28 @@
 .section {
-  --gallery-bg: #f2f1ee;
-  --gallery-card: #ffffff;
-  --gallery-text: #111111;
-  --gallery-muted: #666660;
-  --gallery-soft: #8b8b84;
-  --gallery-line: rgba(17, 17, 17, 0.12);
+  --gallery-bg: #f7f1df;
+  --gallery-bg-soft: #efe6cf;
+  --gallery-card: rgba(255, 255, 255, 0.9);
+  --gallery-text: #0c0b09;
+  --gallery-muted: #6d6455;
+  --gallery-soft: #91846d;
+  --gallery-line: rgba(156, 107, 31, 0.18);
+  --gallery-line-strong: rgba(156, 107, 31, 0.32);
   --gallery-panel: rgba(255, 255, 255, 0.58);
+  --gallery-gold: #d4af37;
+  --gallery-gold-light: #f1d16b;
+  --gallery-gold-dark: #9c6b1f;
+  --gallery-black: #0c0b09;
+  --gallery-charcoal: #1a1813;
 
   padding: 64px 0 108px;
   border-top: 1px solid var(--gallery-line);
-  background: var(--gallery-bg);
+  background:
+    radial-gradient(circle at top left, rgba(212, 175, 55, 0.13), transparent 28rem),
+    radial-gradient(circle at bottom right, rgba(156, 107, 31, 0.1), transparent 30rem),
+    linear-gradient(180deg, var(--gallery-bg), var(--gallery-bg-soft));
   color: var(--gallery-text);
 }
+
 .header {
   margin-bottom: 38px;
   padding-bottom: 30px;
@@ -20,10 +31,10 @@
 
 .eyebrow {
   margin: 0 0 18px;
-  color: var(--gallery-muted);
+  color: var(--gallery-gold-dark);
   font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-weight: 850;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -46,7 +57,7 @@
 
 .headerGrid h2 span {
   display: block;
-  color: var(--gallery-muted);
+  color: var(--gallery-gold-dark);
 }
 
 .headerGrid p {
@@ -70,8 +81,9 @@
   overflow: hidden;
   border: 1px solid var(--gallery-line);
   border-radius: 28px;
-  background: var(--gallery-card);
-  box-shadow: 0 18px 50px rgba(17, 17, 17, 0.045);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 241, 223, 0.88));
+  box-shadow: 0 18px 50px rgba(12, 11, 9, 0.08);
 }
 
 .featureItem {
@@ -87,9 +99,10 @@
   padding: 24px;
   overflow: hidden;
   background:
-    radial-gradient(circle at 28% 18%, rgba(255, 255, 255, 0.45), transparent 30%),
-    linear-gradient(135deg, #242421 0%, #111111 54%, #2d2d29 100%);
-  color: #ffffff;
+    radial-gradient(circle at 28% 18%, rgba(212, 175, 55, 0.28), transparent 30%),
+    radial-gradient(circle at 82% 72%, rgba(241, 209, 107, 0.12), transparent 32%),
+    linear-gradient(135deg, #252219 0%, #0c0b09 55%, #1a1813 100%);
+  color: #f7f1df;
 }
 
 .imagePlaceholder::before {
@@ -100,12 +113,13 @@
   width: 92%;
   height: 48%;
   border-radius: 999px 999px 0 0;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.22);
   background:
     linear-gradient(
       90deg,
       transparent,
-      rgba(255, 255, 255, 0.18),
+      rgba(212, 175, 55, 0.2),
+      rgba(247, 241, 223, 0.08),
       transparent
     );
   transform: translateX(-50%);
@@ -115,7 +129,7 @@
   content: "";
   position: absolute;
   inset: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.16);
   border-radius: 22px;
   pointer-events: none;
 }
@@ -128,14 +142,16 @@
 .imagePlaceholder span {
   display: block;
   margin-bottom: 8px;
-  color: rgba(255, 255, 255, 0.62);
+  color: var(--gallery-gold-light);
   font-size: 12px;
-  font-weight: 750;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .imagePlaceholder strong {
   display: block;
-  color: #ffffff;
+  color: #f7f1df;
   font-size: clamp(24px, 2.4vw, 38px);
   font-weight: 900;
   line-height: 1;
@@ -149,9 +165,9 @@
 .itemInfo span {
   display: block;
   margin-bottom: 8px;
-  color: var(--gallery-muted);
+  color: var(--gallery-gold-dark);
   font-size: 12px;
-  font-weight: 750;
+  font-weight: 800;
 }
 
 .itemInfo h3 {
