@@ -1,6 +1,10 @@
+import Image from "next/image";
 import { siteConfig } from "@/lib/site";
 import Container from "@/components/layout/Container/Container";
 import styles from "./FinalCTA.module.css";
+
+const whatsappHref =
+  "https://wa.me/15156729711?text=Hi%2C%20I%27d%20like%20to%20book%20a%20mobile%20detailing%20service.";
 
 export default function FinalCTA() {
   return (
@@ -38,22 +42,32 @@ export default function FinalCTA() {
                 Book your detail
               </a>
 
-              <a href={siteConfig.phoneHref} className={styles.secondaryAction}>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.whatsappAction}
+              >
+                <Image
+                  src="/images/whatsapp-icon.png"
+                  alt=""
+                  width={22}
+                  height={22}
+                  className={styles.whatsappIcon}
+                />
+
+                Chat on WhatsApp
+              </a>
+
+              <a
+                href={siteConfig.phoneHref}
+                className={styles.secondaryAction}
+              >
                 Call for a quote
               </a>
             </div>
 
-            <div className={styles.contactData}>
-              <a href={siteConfig.emailHref}>
-                <span>Email</span>
-                <strong>{siteConfig.email}</strong>
-              </a>
 
-              <a href={siteConfig.phoneHref}>
-                <span>Phone</span>
-                <strong>{siteConfig.phone}</strong>
-              </a>
-            </div>
           </div>
         </div>
 
